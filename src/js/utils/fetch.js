@@ -6,7 +6,10 @@
 export default function fetch(url, responseType = 'text') {
     return new Promise((resolve, reject) => {
         try {
-            const request = new XMLHttpRequest();
+            var request = new XMLHttpRequest();
+            
+            request.setRequestHeader('X-MS-VERSION', '2013-08-15');
+            request.setRequestHeader('x-ms-version', '2013-08-15');
 
             // Check for CORS support
             if (!('withCredentials' in request)) {
